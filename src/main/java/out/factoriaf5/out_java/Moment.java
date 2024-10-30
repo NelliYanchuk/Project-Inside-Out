@@ -1,7 +1,6 @@
 package out.factoriaf5.out_java;
 
 import java.util.Date;
-import java.util.List;
 
 public class Moment{
     private int id;
@@ -82,5 +81,6 @@ public class Moment{
         this.dateOfModification = dateOfModification;
     }
     
+
 
 }
