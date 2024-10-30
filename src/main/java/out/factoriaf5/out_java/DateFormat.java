@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateFormat {
-public static Date strToSimpleDateFormat(String dateString) {
+
+    public static Date strToSimpleDateFormat(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
             // Parse the string into a Date object and return
