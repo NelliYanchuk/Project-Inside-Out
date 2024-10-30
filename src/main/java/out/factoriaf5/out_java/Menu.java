@@ -25,9 +25,9 @@ public class Menu {
     }
 
     public void showFilterMenu() {
-    System.out.println("--- Filter Moments ---");
-    System.out.println("1. Filter by Emotion");
-    System.out.println("2. Filter by Date");
+        System.out.println("--- Filter Moments ---");
+        System.out.println("1. Filter by Emotion");
+        System.out.println("2. Filter by Date");
     }
 
     public int getFilterOption() {

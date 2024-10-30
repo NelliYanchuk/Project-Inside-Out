@@ -12,11 +12,11 @@ public class PremiumManager {
         System.out.println("Congratulations! You are now a premium user.");
     }
 
-    public boolean isPremium() {
+    public boolean isUserPremium() {
         return isPremium;
     }
 
-    public void showPremiumBenefits() {
+    public void displayPremiumBenefits() {
         System.out.println("Premium Benefit:");
         System.out.println("- Add more than 20 moments.");
     }
