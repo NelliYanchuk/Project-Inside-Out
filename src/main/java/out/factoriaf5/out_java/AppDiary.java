@@ -47,7 +47,23 @@ public class AppDiary {
     }
 
     private void filterMoments() {
-        System.out.println("Filter moments function (pending implementation)");
+        menu.showFilterMenu();
+        int filterOption = menu.getFilterOption();
+
+        if (filterOption == 1) {
+            filterByEmotion();
+        } if (filterOption == 2) {
+            filterByDate();
+        } else {
+            System.out.println("Invalid filter option. Please try again.");}
+    }
+
+    private void filterByEmotion() {
+        System.out.println("Filter by Emotion (pending implementation)");
+    }
+
+    private void filterByDate() {
+        System.out.println("Filter by Date (pending implementation)");
     }
 
     private void deleteMoment() {
