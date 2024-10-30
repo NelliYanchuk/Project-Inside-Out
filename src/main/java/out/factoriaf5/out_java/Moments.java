@@ -1,6 +1,6 @@
 package out.factoriaf5.out_java;
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Moments {
@@ -8,13 +8,13 @@ public class Moments {
     private String title;
     private String description;
     private String emotion;
-    private SimpleDateFormat dateOfMoment;
-    private SimpleDateFormat dateOfCreation;
-    private SimpleDateFormat dateOfModification;
+    private Date dateOfMoment;
+    private Date dateOfCreation;
+    private Date dateOfModification;
 
     // Constructor
     public Moments(int id, String title, String description, String emotion,
-            SimpleDateFormat dateOfMoment, SimpleDateFormat dateOfCreation, SimpleDateFormat dateOfModification) {
+            Date dateOfMoment, Date dateOfCreation, Date dateOfModification) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -41,15 +41,15 @@ public class Moments {
         return emotion;
     }
 
-    public SimpleDateFormat getDateOfMoment() {
+    public Date getDateOfMoment() {
         return dateOfMoment;
     }
 
-    public SimpleDateFormat getDateOfCreation() {
+    public Date getDateOfCreation() {
         return dateOfCreation;
     }
 
-    public SimpleDateFormat getDateOfModification() {
+    public Date getDateOfModification() {
         return dateOfModification;
     }
 
@@ -70,15 +70,15 @@ public class Moments {
         this.emotion = emotion;
     }
 
-    public void setDateOfMoment(SimpleDateFormat dateOfMoment) {
+    public void setDateOfMoment(Date dateOfMoment) {
         this.dateOfMoment = dateOfMoment;
     }
 
-    public void setDateOfCreation(SimpleDateFormat dateOfCreation) {
+    public void setDateOfCreation(Date dateOfCreation) {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public void setDateOfModification(SimpleDateFormat dateOfModification) {
+    public void setDateOfModification(Date dateOfModification) {
         this.dateOfModification = dateOfModification;
     }
 
@@ -86,9 +86,9 @@ public class Moments {
             String title,
             String description,
             String emotion,
-            SimpleDateFormat dateOfMoment,
-            SimpleDateFormat dateOfCreation,
-            SimpleDateFormat dateOfModification) {
+            Date dateOfMoment,
+            Date dateOfCreation,
+            Date dateOfModification) {
         this.id = id;
         this.title = title;
         this.description = description;
