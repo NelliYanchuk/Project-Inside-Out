@@ -5,14 +5,15 @@ import java.util.Scanner;
 public class AppDiary {
     private Diary diary;
     private Menu menu;
-    private boolean isPremium;
+    private PremiumManager premiumManager;
     private boolean running;
 
     public AppDiary() {
         this.diary = new Diary();
-        this.isPremium = false;
-        this.running = true;
         this.menu = new Menu();
+        this.premiumManager = new PremiumManager();
+        this.running = true;
+        
     }
 
     public void start() {
@@ -28,6 +29,8 @@ public class AppDiary {
             } if (option == 4) {
                 filterMoments();
             } if (option == 5) {
+                activatePremium();
+            } if (option == 6) {
                 exitProgram();
             } else {
                 System.out.println("Invalid option. Please try again.");
@@ -36,7 +39,7 @@ public class AppDiary {
     }
 
     private void addMoment() {
-        if (!isPremium && diary.getMomentCount() >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
+        if (!premiumManager.isPremium() && diary.getMomentCount() >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
             System.out.println("To add more moments, acquire the premium version.");
             return;}
         System.out.println("Add moment function (pending implementation)");
@@ -54,9 +57,14 @@ public class AppDiary {
         System.out.println("Delete a moment function (pending implementation)");
     }
 
+    private void activatePremium() {
+        premiumManager.activatePremium();
+        premiumManager.showPremiumBenefits();
+    }
+
     private void exitProgram() {
         System.out.println("Until next time!!!");
-        running = false; 
+        running = false;
     }
 
     public static void main(String[] args) {
