@@ -22,6 +22,17 @@ public class Menu {
         System.out.print("Select an option: ");
         return scanner.nextInt();
     }
+
+    public void showFilterMenu() {
+    System.out.println("--- Filter Moments ---");
+    System.out.println("1. Filter by Emotion");
+    System.out.println("2. Filter by Date");
+    }
+
+    public int getFilterOption() {
+        System.out.print("Select a filter option: ");
+        return scanner.nextInt();
+    }
 }
 
 }
