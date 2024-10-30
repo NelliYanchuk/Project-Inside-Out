@@ -4,46 +4,41 @@ import java.util.Scanner;
 
 public class AppDiary {
     private Diary diary;
+    private Menu menu;
     private boolean isPremium;
-    private Scanner scanner;
     private boolean running;
 
     public AppDiary() {
-        this.diary = new Diary(); // Create an instance of Diary
-        this.isPremium = false; // Initially, the user is not premium
-        this.scanner = new Scanner(System.in);
+        this.diary = new Diary();
+        this.isPremium = false;
         this.running = true;
+        this.menu = new Menu();
     }
 
     public void start() {
         while (running) {
-            showMenu();
-            int option = getUserOption();
-
-            if (option == 1) {addMoment();}
-            if (option == 2) {viewAllMoments();}
-            if (option == 3) {deleteMoment();}
-            if (option == 4) {filterMoments();}
-            if (option == 5) {exitProgram();} 
-            else {System.out.println("Invalid option. Please try again.");}
+            menu.showMenu();
+            int option = menu.getUserOption();
+            if (option == 1) {
+                addMoment();
+            } if (option == 2) {
+                viewAllMoments();
+            } if (option == 3) {
+                deleteMoment();
+            } if (option == 4) {
+                filterMoments();
+            } if (option == 5) {
+                exitProgram();
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
         }
     }
 
-    private void showMenu() {
-        System.out.println("--- My Diary ---");
-        System.out.println("1. Add a moment");
-        System.out.println("2. View all available moments");
-        System.out.println("3. Delete a moment");
-        System.out.println("4. Filter moments");
-        System.out.println("5. Exit");
-    }
-
-    private int getUserOption() {
-        System.out.print("Select an option: ");
-        return scanner.nextInt();
-    }
-
     private void addMoment() {
+        if (!isPremium && diary.getMomentCount() >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
+            System.out.println("To add more moments, acquire the premium version.");
+            return;}
         System.out.println("Add moment function (pending implementation)");
     }
 
