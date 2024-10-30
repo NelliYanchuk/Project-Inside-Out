@@ -1,6 +1,5 @@
 package out.factoriaf5.out_java;
 
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +9,18 @@ public final class App {
     private App() {
     }
 
+    
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Example usage DateFormat:
+        /* 
+        Date date = DateFormat.strToSimpleDateFormat("22/12/1983");
+        if (date != null) {
+            System.out.println("Parsed Date: " + date);
+        } else {
+            System.out.println("Date parsing failed.");
+        }*/
 
-        // Create a SimpleDateFormat
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        // Parse dates using the SimpleDateFormat instance
-        Date dateOfMoment1 = sdf.parse("22/12/1983");
+        Date dateOfMoment1 = Date ("22/12/1983");
         Date dateOfCreation1 = sdf.parse("01/01/2023");
         Date dateOfModification1 = sdf.parse("01/01/2023");
 
