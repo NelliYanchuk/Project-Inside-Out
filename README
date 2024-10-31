@@ -1,104 +1,61 @@
 # Project-Inside-Out
 
-Aplicación de consola llamada "Mi Diario"
-Objetivo: gestionar momentos vividos con atributos como emociones, fechas, y descripciones.
-Modelo de Negocio: Freemium o Licencia de Pago Único.
-    Tiene una versión básica gratuita, con algunas funciones restringidas en esta versión.
-    Gratuita Ejemplo: Permitir al usuario agregar, editar y eliminar hasta un 20 momentos.
-    Premium Ejemplo: Permitir al usuario guardar más de 20 momentos y agregar funcionalidades especiales como "resumen de momentos" o un "conteo de emociones
-    Simulación de Pago: Puedes simular el pago mostrando un mensaje en la consola, como: "Para agregar más momentos, adquiere la versión premium."; No es necesario procesar pagos reales,
-    pero la idea es demostrar que el usuario tendría que pagar para desbloquear esas funciones.
-Funcionalidades Principales: 
-    Menú Principal: Interfaz de navegación para elegir las acciones disponibles.
-    Agregar Momento: Permitir que el usuario ingrese un momento con título, descripción, emoción, y fecha.
-    Visualizar Momentos: Mostrar todos los momentos almacenados.
-    Editar Momento: Permitir al usuario modificar detalles de un momento existente.
-    Eliminar Momento: Opción para borrar un momento específico.
-    Gestión de Acceso (Freemium o Pago Completo): Límite de funciones o acceso completo según el "modelo de negocio".
-Estructura del Proyecto en Java:
-    Clase Momento: Representa cada momento con sus atributos.
-    Clase Diario: Maneja la lista de momentos y las operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
-    Clase AppDiario: Contiene el menú principal e interactúa con el usuario.
-    
-Repartición de Tareas Basada en las Historias de Usuario:
-    La organización sería la siguiente:
-    Responsabilidad: Persona ANGELO.
-    
-    Historia 1: Añadir un Momento Vivido
-    Descripción: Permitir al usuario agregar un momento con título, descripción, emoción y fecha.
-    
-    Clases involucradas:
-    Momento: Clase que representa cada momento (ya existente).
-    Diario: Métodos para añadir un nuevo momento y asignarle un identificador.
-    Notas: Crear la lógica para almacenar el momento en una lista o colección en la clase Diario.
-    
-    Responsabilidad:
-    Implementar la clase Momento con los siguientes atributos:
-    id, titulo, descripcion, emocion, fechaMomento, fechaCreacion, fechaModificacion.
-    Implementar el método agregarMomento() en Diario para añadir un momento.
-    Asegurarse de que cada momento nuevo se crea con un identificador único y que todos los datos requeridos están completos.
-    
-    
-    Responsabilidad: Persona MARIA. 
-    
-    Historia 2: Recuperar la Lista de Momentos Vividos
-    Descripción: Permitir al usuario visualizar todos los momentos registrados.
-    
-    Clases involucradas:
-    Diario: Método para recorrer y mostrar todos los momentos.
-    Notas: Crear un método en Diario que recorra la lista y devuelva cada momento, o bien formatear los resultados para su visualización en consola desde la clase AppDiario.
-    Historia 4: Filtrar Momentos Según Emoción
-    Descripción: Permitir al usuario ver solo los momentos que tengan una emoción específica.
-    
-    Clases involucradas:
-    Diario: Método que filtre los momentos por emoción y los devuelva.
-    Notas: Crear un método que recorra la lista y seleccione solo los momentos que coincidan con la emoción indicada por el usuario.
-    
-    Responsabilidad:
-    Implementar el método listarMomentos() en Diario que devuelva todos los momentos registrados.
-    Implementar el método filtrarPorEmocion() en Diario, que permita al usuario obtener solo los momentos de una emoción específica.
-    Asegurarse de que los momentos se muestran en un formato fácil de leer, organizando la lista por fecha o por otra característica relevante.
-    
-    
-    Responsabilidad: Persona NELLY. 
-    
-    Historia 3: Suprimir un Momento Vivido
-    Descripción: Permitir al usuario eliminar un momento para evitar duplicados o limpiar la lista.
-    
-    Clases involucradas:
-    Diario: Método que elimine un momento según su ID o algún otro identificador único.
-    Notas: Asegurarse de que la eliminación sea específica para un momento determinado, validando la existencia del ID antes de borrarlo.
-    
-    
-    Historia 5: Filtrar Momentos por Mes
-    Descripción: Permitir al usuario obtener momentos registrados en un mes específico.
-    Clases involucradas:
-    Diario: Método para buscar y devolver momentos basados en la fecha.
-    Notas: El método debe comprobar el mes de cada momento y devolver aquellos que correspondan al mes solicitado. Podría requerir formatear o validar la fecha.
-    
-    Responsabilidad:
-    Implementar el método eliminarMomento() en Diario que permita eliminar un momento específico por su identificador.
-    Implementar el método filtrarPorMes() en Diario para devolver solo los momentos de un mes indicado.
-    Asegurarse de que los métodos de eliminación y filtrado funcionan correctamente y no alteran otros momentos almacenados.
-    
-    Responsabilidad: Persona MARIEL.    
-    
-    Historia 6: Salir del Programa
-    Descripción: Permitir al usuario salir de la aplicación.
-    
-    Clases involucradas:
-    AppDiario: Método que termina el bucle de ejecución en el menú principal.
-    Notas: Implementar la opción en el menú y asegurarse de que el programa se cierre correctamente sin errores.
-    
-    Responsabilidad:
-    mplementar la clase AppDiario que muestra el menú principal con las opciones para:
-    Añadir un momento (utilizando el método de Persona A).
-    Ver todos los momentos (utilizando el método de Persona B).
-    Filtrar por emoción (utilizando el método de Persona B).
-    Eliminar un momento (utilizando el método de Persona C).
-    Filtrar por mes (utilizando el método de Persona C).
-    Activar Premium (simulación de pago).
-    Salir del programa.
-    Implementar el flujo de ejecución que llama a las funcionalidades según las opciones seleccionadas en el menú.
-    Añadir la opción Activar Premium para que el usuario simule el pago y cambie su estado a premium, permitiendo un número ilimitado de momentos.
-    
+# Mi Diario
+
+## Descripción del Proyecto
+"Mi Diario" es una aplicación de consola diseñada para gestionar momentos vividos, permitiendo al usuario registrar emociones, indicando la fecha y la descripción de sus experiencias significativas relacionadas a ello.
+
+## Objetivo
+Gestionar momentos vividos con atributos como emociones, fechas y descripciones, facilitando su organización y visualización.
+
+## Funcionalidades Principales
+- **Menú Principal**: Interfaz de navegación para elegir las acciones disponibles.
+- **Agregar Momento**: Permite al usuario ingresar un momento con título, descripción, emoción y fecha.
+- **Visualizar Momentos**: Muestra todos los momentos almacenados.
+- **Eliminar Momento**: Opción para borrar un momento específico.
+- **Filtrar Momentos**: Opción para obtener los momentos vividos según su emoción o por mes determinado.
+
+## Estructura del Proyecto en Java
+- **Clase Momento**: Representa cada momento con sus atributos.
+- **Clase Diario**: Maneja la lista de momentos y las operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
+- **Clase AppDiario**: Contiene el menú principal e interactúa con el usuario.
+
+## Historias de Usuario
+
+- **Historia 1**: Añadir un Momento Vivido
+  - **Descripción**: Permitir al usuario agregar un momento con título, descripción, emoción y fecha.
+  - **Clases involucradas**:
+    - Momento: Representa cada momento (ya existente).
+    - Diario: Métodos para añadir un nuevo momento y asignarle un identificador.
+
+- **Historia 2**: Recuperar la Lista de Momentos Vividos
+  - **Descripción**: Permitir al usuario visualizar todos los momentos registrados.
+  - **Clases involucradas**: Diario.
+
+- **Historia 3**: Suprimir un Momento Vivido
+  - **Descripción**: Permitir al usuario eliminar un momento para evitar duplicados o limpiar la lista.
+  - **Clases involucradas**: Diario.
+
+- **Historia 4**:  Obtener los momentos vividos según su emoción.
+  - **Descripción**: Permitir al usuario ver solo los momentos que tengan una emoción específica.
+  - **Clases involucradas**: Diario.
+
+- **Historia 5**: Obtener los momentos vividos en un mes determinado.
+  - **Descripción**: Permitir al usuario obtener momentos registrados en un mes específico.
+  - **Clases involucradas**: Diario.
+
+- **Historia 6**: Salir del Programa
+  - **Descripción**: Permitir al usuario salir de la aplicación.
+  - **Clases involucradas**: AppDiario.
+
+## Modelo de Negocio
+La aplicación sigue un modelo Freemium o Licencia de Pago Único:
+  - **Versión Gratuita**: Permite al usuario agregar, editar y eliminar hasta 20 momentos.
+  - **Versión Premium**: Permite guardar más de 20 momentos.
+  - **Simulación de Pago**: La aplicación simula el pago con un mensaje en la consola, como "Para agregar más momentos, adquiere la versión premium."
+
+## Autores
+Angelo
+Maria
+Mariel
+Nelly
