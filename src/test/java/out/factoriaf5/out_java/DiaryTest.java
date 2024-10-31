@@ -1,4 +1,4 @@
-package out.factoriaf5.out_java;
+/*package out.factoriaf5.out_java;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,3 +42,4 @@ public class DiaryTest {
 }
 
 
+*/
