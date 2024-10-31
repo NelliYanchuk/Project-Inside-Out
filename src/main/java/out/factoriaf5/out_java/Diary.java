@@ -3,13 +3,40 @@ package out.factoriaf5.out_java;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Iterator;
+import java.util.Date;
+import java.util.Scanner;
 
 public class Diary {
 
-    public static List<Moment> addMoment(List<Moment> momentsList, Moment newMoment) {
+    public static List<Moment> addMoment(List<Moment> momentsList) {
+        Scanner scanner = new Scanner(System.in);
 
-        // Adding newMoment into momentsList
+        System.out.print("Enter the title of the moment: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Enter the description of the moment: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter the emotion of the moment: ");
+        String emotion = scanner.nextLine();
+
+        System.out.print("Enter the date of the moment (dd/MM/yyyy): ");
+        String dateString = scanner.nextLine();
+        Date momentDate = DateFormat.strToSimpleDateFormat(dateString);
+
+        // Assuming the ID is generated based on the size of the list or another method
+        int id = momentsList.size() + 1;
+        Date creationDate = new Date(); // Set creation date to now
+        Date modificationDate = creationDate;
+
+        // Create a new Moment instance with the provided values
+        Moment newMoment = new Moment(id, title, description, emotion, momentDate, creationDate, modificationDate);
+
+        // Add the new moment to the list
         momentsList.add(newMoment);
+
+        System.out.println("Moment added successfully!");
+
         return momentsList;
     }
 
