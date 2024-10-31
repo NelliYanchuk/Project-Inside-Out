@@ -38,8 +38,8 @@ public final class App {
                 dateOfModification);
         
         // Call the main method of CreateMoment
-        Diary.createMoment(momentsList, newMoment);
-        Diary.createMoment(momentsList, newMoment2);
+        Diary.addMoment(momentsList, newMoment);
+        Diary.addMoment(momentsList, newMoment2);
 
         //Call showAllMoments
         Diary.showAllMoments(momentsList);

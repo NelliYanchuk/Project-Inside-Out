@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Diary {
 
-    public static List<Moment> createMoment(List<Moment> momentsList, Moment newMoment) {
+    public static List<Moment> addMoment(List<Moment> momentsList, Moment newMoment) {
 
         // Adding newMoment into momentsList
         momentsList.add(newMoment);
