@@ -5,6 +5,8 @@ public final class App {
     }
 
     public static void main(String[] args) {
-
+        // Call the main method of CreateMoment
+        CreateMoment.main(args);
     }
 }
+

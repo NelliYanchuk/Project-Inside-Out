@@ -8,8 +8,8 @@ public class Diary {
     public void showAllMomentos() {
        
     }
-    public List<Momento> filterByEmotion(String emocion) {
+    //public List<Momento> filterByEmotion(String emocion) {
       
-    }
+    //}
 }
 
