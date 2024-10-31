@@ -24,10 +24,12 @@ public class Diary {
         String dateString = scanner.nextLine();
         Date momentDate = DateFormat.strToSimpleDateFormat(dateString);
 
-        // Assuming the ID is generated based on the size of the list or another method
-        int id = momentsList.size() + 1;
-        Date creationDate = new Date(); // Set creation date to now
-        Date modificationDate = creationDate;
+        // Add id automatically. Check id of the last element of the list and add 1
+        int id = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+
+        // Set creation and modification date to now
+        Date creationDate = new Date(); 
+        Date modificationDate = new Date(); 
 
         // Create a new Moment instance with the provided values
         Moment newMoment = new Moment(id, title, description, emotion, momentDate, creationDate, modificationDate);
@@ -37,7 +39,11 @@ public class Diary {
 
         System.out.println("Moment added successfully!");
 
+        // Close scanner
+        scanner.close();
+
         return momentsList;
+
     }
 
     public static void deleteMoment(List<Moment> momentsList, int id) {

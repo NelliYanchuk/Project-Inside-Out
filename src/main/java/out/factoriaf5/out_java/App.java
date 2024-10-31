@@ -1,7 +1,6 @@
 package out.factoriaf5.out_java;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public final class App {
@@ -12,40 +11,21 @@ public final class App {
         // Create new momentsList
         List<Moment> momentsList = new ArrayList<>();
 
-        // Define test newMoment
-        Date dateOfMoment = DateFormat.strToSimpleDateFormat("22/12/2000");
-        Date dateOfCreation = DateFormat.strToSimpleDateFormat("23/12/2000");
-        Date dateOfModification = DateFormat.strToSimpleDateFormat("01/02/2003");
+        /* Test newMoment
 
-        // Create a new Moment instance
-        Moment newMoment = new Moment(
-                1,
-                "My First Moment",
-                "This is a description of my first moment.",
+                "Wedding day",
+                "This day was just as I always wanted.",
                 "Happy",
-                dateOfMoment,
-                dateOfCreation,
-                dateOfModification);
-        
-        // Create a new Moment instance
-        Moment newMoment2 = new Moment(
-                2,
-                "My Second Moment",
-                "This is a description of my second moment.",
-                "Sad",
-                dateOfMoment,
-                dateOfCreation,
-                dateOfModification);
-        
-        // Call the main method of CreateMoment
-        Diary.addMoment(momentsList, newMoment);
-        Diary.addMoment(momentsList, newMoment2);
+                "09/06/2016"
+        */
+
+        Diary.addMoment(momentsList);
 
         // Call showAllMoments
         Diary.showAllMoments(momentsList);
 
         // Delete 1st moment
-        Diary.deleteMoment(momentsList, 2);
+        Diary.deleteMoment(momentsList, 1);
 
         Diary.showAllMoments(momentsList);
     }
