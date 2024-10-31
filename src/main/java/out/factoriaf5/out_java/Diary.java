@@ -1,7 +1,6 @@
 package out.factoriaf5.out_java;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class Diary {
@@ -20,7 +19,10 @@ public class Diary {
             // Define date format for formatting dates
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
+            System.out.println("\n");
+            System.out.println("\n--- Your Moments ---\n");
             for (Moment moment : momentsList) {
+                System.out.println("\n");
                 System.out.println("Moment ID: " + moment.getId());
                 System.out.println("Title: " + moment.getTitle());
                 System.out.println("Description: " + moment.getDescription());

@@ -1,4 +1,4 @@
-package out.factoriaf5.out_java;
+/*package out.factoriaf5.out_java;
 
 public class PremiumManager {
     private boolean isPremium;
@@ -21,3 +21,4 @@ public class PremiumManager {
         System.out.println("- Add more than 20 moments.");
     }
 }
+*/

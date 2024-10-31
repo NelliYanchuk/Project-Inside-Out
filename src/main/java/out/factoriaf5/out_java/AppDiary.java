@@ -1,4 +1,4 @@
-package out.factoriaf5.out_java;
+/*package out.factoriaf5.out_java;
 
 import java.util.Scanner;
 
@@ -88,3 +88,4 @@ public class AppDiary {
         app.start();
     }
 }
+*/

@@ -27,8 +27,19 @@ public final class App {
                 dateOfCreation,
                 dateOfModification);
         
+        // Create a new Moment instance
+        Moment newMoment2 = new Moment(
+                2,
+                "My Second Moment",
+                "This is a description of my second moment.",
+                "Sad",
+                dateOfMoment,
+                dateOfCreation,
+                dateOfModification);
+        
         // Call the main method of CreateMoment
         Diary.createMoment(momentsList, newMoment);
+        Diary.createMoment(momentsList, newMoment2);
 
         //Call showAllMoments
         Diary.showAllMoments(momentsList);
