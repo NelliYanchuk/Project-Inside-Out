@@ -2,6 +2,7 @@ package out.factoriaf5.out_java;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Iterator;
 
 public class Diary {
 
@@ -12,6 +13,19 @@ public class Diary {
         return momentsList;
     }
 
+    public static void deleteMoment(List<Moment> momentsList, int id) {
+        Iterator<Moment> iterator = momentsList.iterator();
+        while (iterator.hasNext()) {
+            Moment moment = iterator.next();
+            if (moment.getId() == id) {
+                iterator.remove();
+                System.out.println("\nMoment with ID " + id + " has been deleted.");
+                return;
+            }
+        }
+        System.out.println("\nMoment with ID " + id + " not found.");
+    }
+
     public static void showAllMoments(List<Moment> momentsList) {
         if (momentsList.isEmpty()) {
             System.out.println("There are no moments available.");
@@ -19,8 +33,10 @@ public class Diary {
             // Define date format for formatting dates
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
+            int momentQty = momentsList.size();
+
             System.out.println("\n");
-            System.out.println("\n--- Your Moments ---\n");
+            System.out.println("\n--- I have " + momentQty + " moments ---\n");
             for (Moment moment : momentsList) {
                 System.out.println("\n");
                 System.out.println("Moment ID: " + moment.getId());

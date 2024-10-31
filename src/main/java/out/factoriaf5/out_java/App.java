@@ -41,7 +41,12 @@ public final class App {
         Diary.addMoment(momentsList, newMoment);
         Diary.addMoment(momentsList, newMoment2);
 
-        //Call showAllMoments
+        // Call showAllMoments
+        Diary.showAllMoments(momentsList);
+
+        // Delete 1st moment
+        Diary.deleteMoment(momentsList, 2);
+
         Diary.showAllMoments(momentsList);
     }
 }
