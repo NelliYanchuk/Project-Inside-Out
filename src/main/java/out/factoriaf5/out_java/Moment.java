@@ -81,19 +81,4 @@ public class Moment {
         this.dateOfModification = dateOfModification;
     }
 
-    public void setAll(int id,
-            String title,
-            String description,
-            String emotion,
-            Date dateOfMoment,
-            Date dateOfCreation,
-            Date dateOfModification) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.emotion = emotion;
-        this.dateOfMoment = dateOfMoment;
-        this.dateOfCreation = dateOfCreation;
-        this.dateOfModification = dateOfModification;
-    }
 }

@@ -7,7 +7,9 @@ import java.util.Date;
 public class DateFormat {
 
     public static Date strToSimpleDateFormat(String dateString) {
+        // Define date format for formatting dates
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
         try {
             // Parse the string into a Date object and return
             return sdf.parse(dateString);
