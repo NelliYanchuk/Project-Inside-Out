@@ -28,8 +28,8 @@ public class Diary {
         int id = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
 
         // Set creation and modification date to now
-        Date creationDate = new Date(); 
-        Date modificationDate = new Date(); 
+        Date creationDate = new Date();
+        Date modificationDate = new Date();
 
         // Create a new Moment instance with the provided values
         Moment newMoment = new Moment(id, title, description, emotion, momentDate, creationDate, modificationDate);
@@ -46,17 +46,29 @@ public class Diary {
 
     }
 
-    public static void deleteMoment(List<Moment> momentsList, int id) {
+    public static void deleteMoment(List<Moment> momentsList, Scanner scanner) {
+        System.out.print("\nTo delete enter the id of the moment: ");
+        int deleteId = Integer.valueOf(scanner.nextLine());
+
+        // Iterator by Moments into momentsList
         Iterator<Moment> iterator = momentsList.iterator();
         while (iterator.hasNext()) {
             Moment moment = iterator.next();
-            if (moment.getId() == id) {
-                iterator.remove();
-                System.out.println("\nMoment with ID " + id + " has been deleted.");
+            if (moment.getId() == deleteId) {
+                String deleteTitle = moment.getTitle();
+                // Confirmation of deleting
+                System.out.print("Please confirm deleting '" + deleteTitle + "' moment (y): ");
+                String deleteFlag = scanner.nextLine();
+                if (deleteFlag.equalsIgnoreCase("y")) {
+                    iterator.remove();
+                    System.out.println("\n'" + deleteTitle + "' moment with ID #" + deleteId + " has been deleted.");
+                } else {
+                    System.out.println("\nDeclined delete '" + deleteTitle + "' moment with ID #" + deleteId);
+                }
                 return;
             }
         }
-        System.out.println("\nMoment with ID " + id + " not found.");
+        System.out.println("\nMoment with ID #" + deleteId + " is not found.");
     }
 
     public static void showAllMoments(List<Moment> momentsList) {
@@ -81,6 +93,7 @@ public class Diary {
                 System.out.println("Date of Modification: " + sdf.format(moment.getDateOfModification()));
             }
         }
+    }
 }
 
 /*
