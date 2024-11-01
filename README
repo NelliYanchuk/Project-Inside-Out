@@ -58,4 +58,69 @@ La aplicación sigue un modelo Freemium o Licencia de Pago Único:
 Angelo
 Maria
 Mariel
-Nelly
+Nelli
+
+
+// ENGLISH VERSION
+# Project-Inside-Out
+
+# My Diary
+
+## Project Description
+"My Diary" is a console application designed to manage memorable moments, allowing the user to record emotions, specifying the date and description of their meaningful experiences related to those emotions.
+
+## Objective
+To manage memorable moments with attributes such as emotions, dates, and descriptions, facilitating their organization and display.
+
+## Main Features
+- **Main Menu**: Navigation interface to choose available actions.
+- **Add Moment**: Allows the user to enter a moment with a title, description, emotion, and date.
+- **View Moments**: Displays all stored moments.
+- **Delete Moment**: Option to delete a specific moment.
+- **Filter Moments**: Option to retrieve moments based on their emotion or a specific month.
+
+## Project Structure in Java
+- **Moment Class**: Represents each moment with its attributes.
+- **Diary Class**: Manages the list of moments and CRUD operations (Create, Read, Update, Delete).
+- **AppDiary Class**: Contains the main menu and interacts with the user.
+
+## User Stories
+
+- **Story 1**: Add a Memorable Moment
+  - **Description**: Allows the user to add a moment with a title, description, emotion, and date.
+  - **Involved Classes**:
+    - Moment: Represents each moment (already existing).
+    - Diary: Methods for adding a new moment and assigning it an identifier.
+
+- **Story 2**: Retrieve the List of Memorable Moments
+  - **Description**: Allows the user to view all registered moments.
+  - **Involved Classes**: Diary.
+
+- **Story 3**: Delete a Memorable Moment
+  - **Description**: Allows the user to delete a moment to avoid duplicates or clean up the list.
+  - **Involved Classes**: Diary.
+
+- **Story 4**: Retrieve Moments Based on Emotion
+  - **Description**: Allows the user to view only moments with a specific emotion.
+  - **Involved Classes**: Diary.
+
+- **Story 5**: Retrieve Moments for a Specific Month
+  - **Description**: Allows the user to retrieve moments recorded in a specific month.
+  - **Involved Classes**: Diary.
+
+- **Story 6**: Exit the Program
+  - **Description**: Allows the user to exit the application.
+  - **Involved Classes**: AppDiary.
+
+## Business Model
+The application follows a Freemium or One-Time Purchase model:
+  - **Free Version**: Allows the user to add, edit, and delete up to 20 moments.
+  - **Premium Version**: Allows the user to save more than 20 moments.
+  - **Payment Simulation**: The application simulates payment with a console message, such as "To add more moments, acquire the premium version."
+
+## Authors
+Angelo Colmenares
+Maria Vasilenko
+Mariel Blanco
+Nelli Yanchuk
+
