@@ -53,6 +53,21 @@ public class Diary {
 
         // Add the new moment to the list
         momentsList.add(newMoment);
+<<<<<<< HEAD
+=======
+        return momentsList;
+    }
+   public static List<Moment> filterByEmotion(List<Moment> momentsList, String emotion) {
+    List<Moment> result = new ArrayList<>();
+    for (Moment moment : momentsList) {
+        if (moment.getEmotion().equalsIgnoreCase(emotion)) {
+            result.add(moment);
+        }
+    }
+    return result;
+}
+        
+>>>>>>> 36c78d0 ( new class filterByEmotion)
 
         System.out.println("\nNew '" + title + "' moment added successfully!");
 
