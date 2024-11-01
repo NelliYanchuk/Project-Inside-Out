@@ -2,6 +2,7 @@ package out.factoriaf5.out_java;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public final class App {
     private App() {
@@ -10,24 +11,20 @@ public final class App {
     public static void main(String[] args) {
         // Create new momentsList
         List<Moment> momentsList = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-        /* Test newMoment
-
-                "Wedding day",
-                "This day was just as I always wanted.",
-                "Happy",
-                "09/06/2016"
-        */
-
-        Diary.addMoment(momentsList);
+        // Adding a moment
+        Diary.addMoment(momentsList, scanner);
 
         // Call showAllMoments
         Diary.showAllMoments(momentsList);
 
         // Delete 1st moment
-        Diary.deleteMoment(momentsList, 1);
+        Diary.deleteMoment(momentsList, scanner);
 
         Diary.showAllMoments(momentsList);
+
+        // Close the Scanner after all operations
+        scanner.close();
     }
 }
-
