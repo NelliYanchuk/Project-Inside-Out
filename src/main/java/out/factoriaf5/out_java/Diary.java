@@ -61,15 +61,15 @@ public class Diary {
 
     public static void showAllMoments(List<Moment> momentsList) {
         if (momentsList.isEmpty()) {
-            System.out.println("There are no moments available.");
+            System.out.println("\nThere are no moments available.");
         } else {
             // Define date format for formatting dates
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-            int momentQty = momentsList.size();
+            int momentQty = momentsList.size(); // Get the count of moments
 
             System.out.println("\n");
-            System.out.println("\n--- I have " + momentQty + " moments ---\n");
+            System.out.println("\n--- Available moments: " + momentQty + " ---\n");
             for (Moment moment : momentsList) {
                 System.out.println("\n");
                 System.out.println("Moment ID: " + moment.getId());
@@ -81,7 +81,6 @@ public class Diary {
                 System.out.println("Date of Modification: " + sdf.format(moment.getDateOfModification()));
             }
         }
-    }
 }
 
 /*
