@@ -2,6 +2,7 @@ package out.factoriaf5.out_java;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Diary {
@@ -12,6 +13,16 @@ public class Diary {
         momentsList.add(newMoment);
         return momentsList;
     }
+   public static List<Moment> filterByEmotion(List<Moment> momentsList, String emotion) {
+    List<Moment> result = new ArrayList<>();
+    for (Moment moment : momentsList) {
+        if (moment.getEmotion().equalsIgnoreCase(emotion)) {
+            result.add(moment);
+        }
+    }
+    return result;
+}
+        
 
     public static void deleteMoment(List<Moment> momentsList, int id) {
         Iterator<Moment> iterator = momentsList.iterator();
@@ -51,14 +62,5 @@ public class Diary {
     }
 }
 
-/*
- * public List<Moment> filterByEmotion(String emocion) {
- * List<Moment> result = new ArrayList<>();
- * for (Moment moment : moment) {
- * if (moment.getEmocion().equalsIgnoreCase(emocion)) {
- * result.add(moment);
- * }
- * }
- * return result;
- * }
- */
+
+
