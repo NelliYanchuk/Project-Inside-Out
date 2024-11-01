@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class Diary {
 
-    public static List<Moment> addMoment(List<Moment> momentsList) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the title of the moment: ");
+    // ----------- ADD Moment -----------
+    public static void addMoment(List<Moment> momentsList, Scanner scanner) {
+        // User input data
+        System.out.print("\nTo Add new moment please enter it's title: ");
         String title = scanner.nextLine();
 
         System.out.print("Enter the description of the moment: ");
@@ -22,30 +22,57 @@ public class Diary {
 
         System.out.print("Enter the date of the moment (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
+
+        // ----- Test data -----
+        /*
+        String title = "Wedding day";
+        String description = "This day was as I always dreamed!";
+        String emotion = "Happy";
+        String dateString = "09/06/2016";
+        
+        String title2 = "30th Birthday";
+        String description2 = "So many friends has come!";
+        String emotion2 = "Happy";
+        String dateString2 = "09/08/2018";
+        
+        String title3 = "Funeral day";
+        String description3 = "I still love you";
+        String emotion3 = "Sad";
+        String dateString3 = "09/06/2020";
+        */
+
         Date momentDate = DateFormat.strToSimpleDateFormat(dateString);
 
         // Add id automatically. Check id of the last element of the list and add 1
-        int id = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+        int addId = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
 
-        // Set creation and modification date to now
-        Date creationDate = new Date();
-        Date modificationDate = new Date();
-
-        // Create a new Moment instance with the provided values
-        Moment newMoment = new Moment(id, title, description, emotion, momentDate, creationDate, modificationDate);
+        // Create a new Moment instance. Set creationDate and modificationDate to
+        // current date
+        Moment newMoment = new Moment(addId, title, description, emotion, momentDate, new Date(), new Date());
 
         // Add the new moment to the list
         momentsList.add(newMoment);
 
-        System.out.println("Moment added successfully!");
+        System.out.println("\nNew '" + title + "' moment added successfully!");
 
-        // Close scanner
-        scanner.close();
-
-        return momentsList;
-
+        // ----- Test data. -----
+        // Add 2d moment
+        /*
+        Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
+        int addId2 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+        Moment newMoment2 = new Moment(addId2, title2, description2, emotion2,
+        momentDate2, new Date(), new Date());
+        momentsList.add(newMoment2);
+        // Add 3d moment
+        Date momentDate3 = DateFormat.strToSimpleDateFormat(dateString3);
+        int addId3 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+        Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
+        momentDate3, new Date(), new Date());
+        momentsList.add(newMoment3);
+        */
     }
 
+    // ----------- DELETE Moment -----------
     public static void deleteMoment(List<Moment> momentsList, Scanner scanner) {
         System.out.print("\nTo delete enter the id of the moment: ");
         int deleteId = Integer.valueOf(scanner.nextLine());
@@ -71,6 +98,7 @@ public class Diary {
         System.out.println("\nMoment with ID #" + deleteId + " is not found.");
     }
 
+    // ----------- SHOW ALL Moments -----------
     public static void showAllMoments(List<Moment> momentsList) {
         if (momentsList.isEmpty()) {
             System.out.println("\nThere are no moments available.");
