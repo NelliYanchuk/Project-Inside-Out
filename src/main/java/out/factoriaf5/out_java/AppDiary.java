@@ -1,19 +1,21 @@
-/*package out.factoriaf5.out_java;
+package out.factoriaf5.out_java;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AppDiary {
-    private Diary diary;
+    private Diary diary = new Diary();
     private Menu menu;
     private PremiumManager premiumManager;
     private boolean running;
+    private List<Moment> momentsList = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
 
     public AppDiary() {
-        this.diary = new Diary();
         this.menu = new Menu();
         this.premiumManager = new PremiumManager();
         this.running = true;
-        
     }
 
     public void start() {
@@ -39,14 +41,14 @@ public class AppDiary {
     }
 
     private void addMoment() {
-        if (!premiumManager.isPremium() && diary.getMomentCount() >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
+        if (!premiumManager.isUserPremium() && diary.getMomentCount(momentsList) >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
             System.out.println("To add more moments, acquire the premium version.");
             return;}
-        System.out.println("Add moment function (pending implementation)");
+        Diary.addMoment(momentsList, scanner);
     }
 
     private void viewAllMoments() {
-        System.out.println("View all moments function (pending implementation)");
+        Diary.showAllMoments(momentsList);
     }
 
     private void filterMoments() {
@@ -62,7 +64,15 @@ public class AppDiary {
     }
 
     private void filterByEmotion() {
-        System.out.println("Filter by Emotion (pending implementation)");
+        System.out.print("Enter the emotion to filter by: ");
+        String emotion = scanner.nextLine();
+        List<Moment> filteredMoments = Diary.filterByEmotion(momentsList, emotion);
+
+        if (filteredMoments.isEmpty()) {
+            System.out.println("No moments found with emotion: " + emotion);
+        } else {
+            Diary.showAllMoments(filteredMoments);
+        }
     }
 
     private void filterByDate() {
@@ -70,12 +80,12 @@ public class AppDiary {
     }
 
     private void deleteMoment() {
-        System.out.println("Delete a moment function (pending implementation)");
+        Diary.deleteMoment(momentsList, scanner);
     }
 
     private void activatePremium() {
         premiumManager.activatePremium();
-        premiumManager.showPremiumBenefits();
+        premiumManager.displayPremiumBenefits();
     }
 
     private void exitProgram() {
@@ -88,4 +98,3 @@ public class AppDiary {
         app.start();
     }
 }
-*/

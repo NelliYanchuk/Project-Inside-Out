@@ -56,23 +56,32 @@ public class Diary {
 
         System.out.println("\nNew '" + title + "' moment added successfully!");
 
-        // ----- Test data. -----
-        // Add 2d moment
-        /*
-        Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
-        int addId2 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
-        Moment newMoment2 = new Moment(addId2, title2, description2, emotion2,
-        momentDate2, new Date(), new Date());
-        momentsList.add(newMoment2);
-        // Add 3d moment
-        Date momentDate3 = DateFormat.strToSimpleDateFormat(dateString3);
-        int addId3 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
-        Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
-        momentDate3, new Date(), new Date());
-        momentsList.add(newMoment3);
-        */
-    }
-   public static List<Moment> filterByEmotion(List<Moment> momentsList, String emotion) {
+        int totalMoments = getMomentCount(momentsList);
+                System.out.println("Total moments now: " + totalMoments);
+        
+                // ----- Test data. -----
+                // Add 2d moment
+                /*
+                Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
+                int addId2 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+                Moment newMoment2 = new Moment(addId2, title2, description2, emotion2,
+                momentDate2, new Date(), new Date());
+                momentsList.add(newMoment2);
+                // Add 3d moment
+                Date momentDate3 = DateFormat.strToSimpleDateFormat(dateString3);
+                int addId3 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+                Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
+                momentDate3, new Date(), new Date());
+                momentsList.add(newMoment3);
+                */
+    
+            }
+
+        public static int getMomentCount(List<Moment> momentsList) {
+            return momentsList.size(); 
+        }
+        
+        public static List<Moment> filterByEmotion(List<Moment> momentsList, String emotion) {
     List<Moment> result = new ArrayList<>();
     for (Moment moment : momentsList) {
         if (moment.getEmotion().equalsIgnoreCase(emotion)) {
