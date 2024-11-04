@@ -3,7 +3,9 @@ package out.factoriaf5.out_java;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.Scanner;
 
 public class Diary {
@@ -83,12 +85,18 @@ public class Diary {
 
     // ----------- Filter by emotion -----------
     public static List<Moment> filterByEmotion(List<Moment> momentsList, Scanner scanner) {
-            System.out.print("\nPlease enter the emotion which moments you'd like to see: ");
-            String emotion = scanner.nextLine();
-        for (Moment moment : momentsList) {
-            if (moment.getEmotion().equalsIgnoreCase(emotion)) {
-                System.out.println(moment);
+        List<Moment> filterByEmotionList = new ArrayList<>();
+        System.out.print("\nPlease select the emotion from the list below: ");
+            // output all values from enum Emotion
+            for (Emotion emotion : Emotion.values()) {
+                System.out.print("\n" + emotion.getName() + " ");
             }
+        System.out.print("\n"); 
+            String emotionNum = scanner.nextLine();
+        for (Moment moment : momentsList) {
+            //if (moment.getEmotion().equalsIgnoreCase(emotion)) {
+            //    System.out.println(moment);
+            //}
         }
         return momentsList;
     }

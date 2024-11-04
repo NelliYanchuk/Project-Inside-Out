@@ -63,8 +63,10 @@ public class AppDiary {
 
         if (filterOption == 1) {
             filterByEmotion();
+            return;
         } if (filterOption == 2) {
             filterByDate();
+            return;
         } else {
             System.out.println("Invalid filter option. Please try again.");}
     }
