@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.EnumSet;
 import java.util.Scanner;
 
 public class Diary {
@@ -13,35 +12,36 @@ public class Diary {
     // ----------- ADD Moment -----------
     public static void addMoment(List<Moment> momentsList, Scanner scanner) {
         // User input data
-        /* System.out.print("\nTo Add new moment please enter it's title: ");
+        
+        System.out.print("\nTo Add new moment please enter it's title: ");
         String title = scanner.nextLine();
-
+        
         System.out.print("Enter the description of the moment: ");
         String description = scanner.nextLine();
-
+        
         System.out.print("Enter the emotion of the moment: ");
         String emotion = scanner.nextLine();
-
+        
         System.out.print("Enter the date of the moment (dd/MM/yyyy): ");
-        String dateString = scanner.nextLine(); */
+        String dateString = scanner.nextLine();
+        
 
         // ----- Test data -----
-        
-        String title = "Wedding day";
+
+        /* String title = "Wedding day";
         String description = "This day was as I always dreamed!";
-        String emotion = "Happy";
+        String emotion = "Joy";
         String dateString = "09/06/2016";
-        
+
         String title2 = "30th Birthday";
         String description2 = "So many friends has come!";
-        String emotion2 = "Happy";
+        String emotion2 = "Joy";
         String dateString2 = "09/08/2018";
-        
+
         String title3 = "Funeral day";
         String description3 = "I still love you";
-        String emotion3 = "Sad";
-        String dateString3 = "09/06/2020";
-        
+        String emotion3 = "Sadness";
+        String dateString3 = "09/06/2020"; */
 
         Date momentDate = DateFormat.strToSimpleDateFormat(dateString);
 
@@ -62,43 +62,53 @@ public class Diary {
 
         // ----- Test data. -----
         // Add 2d moment
-        
-        Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
+        /* Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
         int addId2 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
         Moment newMoment2 = new Moment(addId2, title2, description2, emotion2,
-        momentDate2, new Date(), new Date());
+                momentDate2, new Date(), new Date());
         momentsList.add(newMoment2);
         // Add 3d moment
         Date momentDate3 = DateFormat.strToSimpleDateFormat(dateString3);
         int addId3 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
         Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
-        momentDate3, new Date(), new Date());
-        momentsList.add(newMoment3);
-        
+                momentDate3, new Date(), new Date());
+        momentsList.add(newMoment3); */
 
     }
 
-    // ----------- Filter by emotion -----------
+    // ----------- Get the amount of moments -----------
     public static int getMomentCount(List<Moment> momentsList) {
         return momentsList.size();
     }
 
     // ----------- Filter by emotion -----------
-    public static List<Moment> filterByEmotion(List<Moment> momentsList, Scanner scanner) {
+    public static void filterByEmotion(List<Moment> momentsList, Scanner scanner) {
+        // New list for filtered moments only
         List<Moment> filterByEmotionList = new ArrayList<>();
+
         System.out.print("\nPlease select the emotion from the list below: ");
-            // output all values from enum Emotion
-            for (Emotion emotion : Emotion.values()) {
-                System.out.print("\n" + emotion.getName() + " ");
-            }
-        System.out.print("\n"); 
-            String emotionNum = scanner.nextLine();
-        for (Moment moment : momentsList) {
-            //if (moment.getEmotion().equalsIgnoreCase(emotion)) {
-            //    System.out.println(moment);
-            //}
+        // Output all values from enum Emotion
+        for (Emotion emotion : Emotion.values()) {
+            System.out.print("\n" + emotion.getNumber() + ". " + emotion.getName() + " ");
         }
-        return momentsList;
+        System.out.print("\n\nAnd enter it's number:");
+        // Read the answer into variable emotion num
+        int emotionNum = scanner.nextInt();
+        // Find emotion by it's number
+        String emotionName = Emotion.getNameByNumber(emotionNum);
+
+        // If there is a correct emotion
+        if (emotionName != null) {
+            // Check the existed list
+            for (Moment moment : momentsList) {
+                // If emotion is found - add whole moment to filterByEmotionList
+                if (moment.getEmotion().equalsIgnoreCase(emotionName)) {
+                    filterByEmotionList.add(moment);
+                }
+            }
+            // Show all moments filtered by emotion
+            showAllMoments(filterByEmotionList);
+        }
     }
 
     // ----------- DELETE Moment -----------
@@ -131,6 +141,7 @@ public class Diary {
     public static void showAllMoments(List<Moment> momentsList) {
         if (momentsList.isEmpty()) {
             System.out.println("\nThere are no moments available.");
+            return;
         } else {
             // Define date format for formatting dates
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
