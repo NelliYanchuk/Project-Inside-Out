@@ -83,7 +83,7 @@ public class Diary {
 
     // ----------- Filter by emotion -----------
     public static void filterByEmotion(List<Moment> momentsList, Scanner scanner) {
-        // New list for filtered moments only
+        // New list for moments filtered by emotion
         List<Moment> filterByEmotionList = new ArrayList<>();
 
         System.out.print("\nPlease select the emotion from the list below: ");
@@ -109,6 +109,34 @@ public class Diary {
             // Show all moments filtered by emotion
             showAllMoments(filterByEmotionList);
         }
+    }
+
+    // ----------- Filter by date -----------
+    public static void filterByDate(List<Moment> momentsList, Scanner scanner) {
+        // New list for moments filtered by date
+        List<Moment> filterByDateList = new ArrayList<>();
+
+        System.out.print("\nEnter the date to filter by (dd/MM/yyyy): ");
+        String dateString = scanner.nextLine();
+
+        // Convert the user input string into a Date object
+        Date filterDate = DateFormat.strToSimpleDateFormat(dateString);
+
+        // Check if the date is valid
+        if (filterDate == null) {
+            System.out.println("Invalid date format.");
+            return;
+        }
+
+        // Filter moments by the specified date
+        for (Moment moment : momentsList) {
+            if (moment.getDateOfMoment().equals(filterDate)) {
+                filterByDateList.add(moment);
+            }
+        }
+
+        // Show all moments filtered by date
+        showAllMoments(filterByDateList);
     }
 
     // ----------- DELETE Moment -----------

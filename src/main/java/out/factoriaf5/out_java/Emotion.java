@@ -2,15 +2,15 @@ package out.factoriaf5.out_java;
 
 public enum Emotion {
   JOY(1, "Joy"),
-  SADNESS(2, "Sadness"),
-  ANGER(3, "Anger"),
-  DISGUST(4, "Disgust"),
-  FEAR(5, "Fear"),
-  ANXIETY(6, "Anxiety"),
-  ENVY(7, "Envy"),
-  SHAME(8, "Shame"),
-  BOREDOM(9, "Boredom"),
-  NOSTALGIA(10, "Nostalgia");
+  SAD(2, "Sadness"),
+  ANG(3, "Anger"),
+  DIS(4, "Disgust"),
+  FEA(5, "Fear"),
+  ANX(6, "Anxiety"),
+  ENV(7, "Envy"),
+  SHA(8, "Shame"),
+  BOR(9, "Boredom"),
+  NOS(10, "Nostalgia");
 
   private String name;
   private int number;
@@ -36,6 +36,7 @@ public enum Emotion {
         return emotion.getName();
       }
     }
-    return null; // Return a default message if not found
+    // If incorrect number
+    return null;
   }
 }
