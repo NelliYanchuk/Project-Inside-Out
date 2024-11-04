@@ -1,4 +1,4 @@
-package out.factoriaf5.out_java;
+/* package out.factoriaf5.out_java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +23,23 @@ public class AppDiary {
             menu.showMenu();
             int option = menu.getUserOption();
             if (option == 1) {
-                addMoment();
+                addMoment(); 
+                return;
             } if (option == 2) {
                 viewAllMoments();
+                return;
             } if (option == 3) {
                 deleteMoment();
+                return;
             } if (option == 4) {
                 filterMoments();
+                return;
             } if (option == 5) {
                 activatePremium();
+                return;
             } if (option == 6) {
                 exitProgram();
+                return;
             } else {
                 System.out.println("Invalid option. Please try again.");
             }
@@ -41,7 +47,7 @@ public class AppDiary {
     }
 
     private void addMoment() {
-        if (!premiumManager.isUserPremium() && diary.getMomentCount(momentsList) >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
+        if (!premiumManager.isUserPremium() && Diary.getMomentCount(momentsList) >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
             System.out.println("To add more moments, acquire the premium version.");
             return;}
         Diary.addMoment(momentsList, scanner);
@@ -57,8 +63,10 @@ public class AppDiary {
 
         if (filterOption == 1) {
             filterByEmotion();
+            return;
         } if (filterOption == 2) {
             filterByDate();
+            return;
         } else {
             System.out.println("Invalid filter option. Please try again.");}
     }
@@ -97,4 +105,4 @@ public class AppDiary {
         AppDiary app = new AppDiary();
         app.start();
     }
-}
+} */

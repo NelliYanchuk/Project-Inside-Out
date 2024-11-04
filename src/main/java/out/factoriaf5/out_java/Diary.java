@@ -2,9 +2,10 @@ package out.factoriaf5.out_java;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.Scanner;
 
 public class Diary {
@@ -12,7 +13,7 @@ public class Diary {
     // ----------- ADD Moment -----------
     public static void addMoment(List<Moment> momentsList, Scanner scanner) {
         // User input data
-        System.out.print("\nTo Add new moment please enter it's title: ");
+        /* System.out.print("\nTo Add new moment please enter it's title: ");
         String title = scanner.nextLine();
 
         System.out.print("Enter the description of the moment: ");
@@ -22,10 +23,10 @@ public class Diary {
         String emotion = scanner.nextLine();
 
         System.out.print("Enter the date of the moment (dd/MM/yyyy): ");
-        String dateString = scanner.nextLine();
+        String dateString = scanner.nextLine(); */
 
         // ----- Test data -----
-        /*
+        
         String title = "Wedding day";
         String description = "This day was as I always dreamed!";
         String emotion = "Happy";
@@ -40,7 +41,7 @@ public class Diary {
         String description3 = "I still love you";
         String emotion3 = "Sad";
         String dateString3 = "09/06/2020";
-        */
+        
 
         Date momentDate = DateFormat.strToSimpleDateFormat(dateString);
 
@@ -57,40 +58,48 @@ public class Diary {
         System.out.println("\nNew '" + title + "' moment added successfully!");
 
         int totalMoments = getMomentCount(momentsList);
-                System.out.println("Total moments now: " + totalMoments);
-        
-                // ----- Test data. -----
-                // Add 2d moment
-                /*
-                Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
-                int addId2 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
-                Moment newMoment2 = new Moment(addId2, title2, description2, emotion2,
-                momentDate2, new Date(), new Date());
-                momentsList.add(newMoment2);
-                // Add 3d moment
-                Date momentDate3 = DateFormat.strToSimpleDateFormat(dateString3);
-                int addId3 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
-                Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
-                momentDate3, new Date(), new Date());
-                momentsList.add(newMoment3);
-                */
-    
-            }
+        System.out.println("Total moments now: " + totalMoments);
 
-        public static int getMomentCount(List<Moment> momentsList) {
-            return momentsList.size(); 
-        }
+        // ----- Test data. -----
+        // Add 2d moment
         
-        public static List<Moment> filterByEmotion(List<Moment> momentsList, String emotion) {
-    List<Moment> result = new ArrayList<>();
-    for (Moment moment : momentsList) {
-        if (moment.getEmotion().equalsIgnoreCase(emotion)) {
-            result.add(moment);
-        }
+        Date momentDate2 = DateFormat.strToSimpleDateFormat(dateString2);
+        int addId2 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+        Moment newMoment2 = new Moment(addId2, title2, description2, emotion2,
+        momentDate2, new Date(), new Date());
+        momentsList.add(newMoment2);
+        // Add 3d moment
+        Date momentDate3 = DateFormat.strToSimpleDateFormat(dateString3);
+        int addId3 = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
+        Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
+        momentDate3, new Date(), new Date());
+        momentsList.add(newMoment3);
+        
+
     }
-    return result;
-}
-        
+
+    // ----------- Filter by emotion -----------
+    public static int getMomentCount(List<Moment> momentsList) {
+        return momentsList.size();
+    }
+
+    // ----------- Filter by emotion -----------
+    public static List<Moment> filterByEmotion(List<Moment> momentsList, Scanner scanner) {
+        List<Moment> filterByEmotionList = new ArrayList<>();
+        System.out.print("\nPlease select the emotion from the list below: ");
+            // output all values from enum Emotion
+            for (Emotion emotion : Emotion.values()) {
+                System.out.print("\n" + emotion.getName() + " ");
+            }
+        System.out.print("\n"); 
+            String emotionNum = scanner.nextLine();
+        for (Moment moment : momentsList) {
+            //if (moment.getEmotion().equalsIgnoreCase(emotion)) {
+            //    System.out.println(moment);
+            //}
+        }
+        return momentsList;
+    }
 
     // ----------- DELETE Moment -----------
     public static void deleteMoment(List<Moment> momentsList, Scanner scanner) {
@@ -143,6 +152,3 @@ public class Diary {
         }
     }
 }
-
-
-
