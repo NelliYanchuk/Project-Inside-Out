@@ -9,10 +9,9 @@ import java.util.Scanner;
 
 public class Diary {
 
-    // ----------- ADD Moment -----------
+    // ----------- ADD Momemt -----------
     public static void addMoment(List<Moment> momentsList, Scanner scanner) {
-        // User input data
-        
+        // User input data 
         System.out.print("\nTo Add new moment please enter it's title: ");
         String title = scanner.nextLine();
         
@@ -24,10 +23,8 @@ public class Diary {
         
         System.out.print("Enter the date of the moment (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
-        
 
         // ----- Test data -----
-
         /* String title = "Wedding day";
         String description = "This day was as I always dreamed!";
         String emotion = "Joy";
@@ -73,15 +70,14 @@ public class Diary {
         Moment newMoment3 = new Moment(addId3, title3, description3, emotion3,
                 momentDate3, new Date(), new Date());
         momentsList.add(newMoment3); */
-
     }
 
-    // ----------- Get the amount of moments -----------
+    // ----------- GET THE AMOUNT of moments -----------
     public static int getMomentCount(List<Moment> momentsList) {
         return momentsList.size();
     }
 
-    // ----------- Filter by emotion -----------
+    // ----------- FILTER BY EMOTION -----------
     public static void filterByEmotion(List<Moment> momentsList, Scanner scanner) {
         // New list for moments filtered by emotion
         List<Moment> filterByEmotionList = new ArrayList<>();
@@ -111,12 +107,12 @@ public class Diary {
         }
     }
 
-    // ----------- Filter by date -----------
+    // ----------- FILTER BY DATE -----------
     public static void filterByDate(List<Moment> momentsList, Scanner scanner) {
         // New list for moments filtered by date
         List<Moment> filterByDateList = new ArrayList<>();
 
-        System.out.print("\nEnter the date to filter by (dd/MM/yyyy): ");
+        System.out.print("\nEnter the date of the moment to filter by (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
 
         // Convert the user input string into a Date object

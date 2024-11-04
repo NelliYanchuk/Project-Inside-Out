@@ -24,8 +24,10 @@ public final class App {
 
        // Diary.showAllMoments(momentsList);
 
-        // to filtr
-        Diary.filterByEmotion(momentsList, scanner);
+        // to see filtered data
+       // Diary.filterByEmotion(momentsList, scanner);
+        Diary.filterByDate(momentsList, scanner);
+
         // Close the Scanner after all operations
         scanner.close();
     }
