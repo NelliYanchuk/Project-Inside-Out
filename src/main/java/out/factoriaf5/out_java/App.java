@@ -20,10 +20,12 @@ public final class App {
         Diary.showAllMoments(momentsList);
 
         // Delete 1st moment
-        Diary.deleteMoment(momentsList, scanner);
+       // Diary.deleteMoment(momentsList, scanner);
 
-        Diary.showAllMoments(momentsList);
+       // Diary.showAllMoments(momentsList);
 
+        // to filtr
+        Diary.filterByEmotion(momentsList, scanner);
         // Close the Scanner after all operations
         scanner.close();
     }
