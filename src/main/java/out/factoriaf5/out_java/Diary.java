@@ -76,6 +76,7 @@ public class Diary {
 
     }
 
+    // ----------- Filter by emotion -----------
     public static int getMomentCount(List<Moment> momentsList) {
         return momentsList.size();
     }
