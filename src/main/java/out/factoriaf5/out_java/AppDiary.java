@@ -1,11 +1,10 @@
-/* package out.factoriaf5.out_java;
+package out.factoriaf5.out_java;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class AppDiary {
-    private Diary diary = new Diary();
     private Menu menu;
     private PremiumManager premiumManager;
     private boolean running;
@@ -20,75 +19,38 @@ public class AppDiary {
 
     public void start() {
         while (running) {
-            menu.showMenu();
+            Menu.showMenu();
             int option = menu.getUserOption();
-            if (option == 1) {
-                addMoment(); 
-                return;
-            } if (option == 2) {
-                viewAllMoments();
-                return;
-            } if (option == 3) {
-                deleteMoment();
-                return;
-            } if (option == 4) {
-                filterMoments();
-                return;
-            } if (option == 5) {
-                activatePremium();
-                return;
-            } if (option == 6) {
-                exitProgram();
-                return;
-            } else {
-                System.out.println("Invalid option. Please try again.");
+            switch (option) {
+                case 1:
+                    Diary.addMoment(momentsList, scanner);
+                    break;
+                case 2:
+                    Diary.showAllMoments(momentsList);
+                    break;
+                case 3:
+                    Diary.deleteMoment(momentsList, scanner);
+                    break;
+                case 4:
+                    Menu.showFilterMenu();
+                    int filterNum = Menu.getFilterOption();
+                    if (filterNum == 1) {
+                        Diary.filterByEmotion(momentsList, scanner);
+                    }
+                    if (filterNum == 2) {
+                        Diary.filterByDate(momentsList, scanner);
+                    }
+                    break;
+                case 5:
+                    activatePremium();
+                    break;
+                case 6:
+                    exitProgram();
+                    break;
+                default:
+                    Menu.showMenu();
             }
         }
-    }
-
-    private void addMoment() {
-        if (!premiumManager.isUserPremium() && Diary.getMomentCount(momentsList) >= 20) { //getMomentCount debe aparecer como metodo en la clase Diary
-            System.out.println("To add more moments, acquire the premium version.");
-            return;}
-        Diary.addMoment(momentsList, scanner);
-    }
-
-    private void viewAllMoments() {
-        Diary.showAllMoments(momentsList);
-    }
-
-    private void filterMoments() {
-        menu.showFilterMenu();
-        int filterOption = menu.getFilterOption();
-
-        if (filterOption == 1) {
-            filterByEmotion();
-            return;
-        } if (filterOption == 2) {
-            filterByDate();
-            return;
-        } else {
-            System.out.println("Invalid filter option. Please try again.");}
-    }
-
-    private void filterByEmotion() {
-        System.out.print("Enter the emotion to filter by: ");
-        String emotion = scanner.nextLine();
-        List<Moment> filteredMoments = Diary.filterByEmotion(momentsList, emotion);
-
-        if (filteredMoments.isEmpty()) {
-            System.out.println("No moments found with emotion: " + emotion);
-        } else {
-            Diary.showAllMoments(filteredMoments);
-        }
-    }
-
-    private void filterByDate() {
-        System.out.println("Filter by Date (pending implementation)");
-    }
-
-    private void deleteMoment() {
-        Diary.deleteMoment(momentsList, scanner);
     }
 
     private void activatePremium() {
@@ -105,4 +67,4 @@ public class AppDiary {
         AppDiary app = new AppDiary();
         app.start();
     }
-} */
+}

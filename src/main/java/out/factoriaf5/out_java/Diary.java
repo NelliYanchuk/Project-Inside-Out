@@ -90,6 +90,7 @@ public class Diary {
         System.out.print("\n\nAnd enter it's number:");
         // Read the answer into variable emotion num
         int emotionNum = scanner.nextInt();
+        scanner.nextLine();
         // Find emotion by it's number
         String emotionName = Emotion.getNameByNumber(emotionNum);
 
