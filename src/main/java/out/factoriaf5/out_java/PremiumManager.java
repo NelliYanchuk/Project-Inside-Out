@@ -9,7 +9,7 @@ public class PremiumManager {
 
     public void activatePremium() {
         isPremium = true;
-        System.out.println("Congratulations! You are now a premium user.");
+        System.out.println("\nCongratulations! You are a premium user now.");
     }
 
     public boolean isUserPremium() {

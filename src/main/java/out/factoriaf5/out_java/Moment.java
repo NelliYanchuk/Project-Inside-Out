@@ -52,33 +52,4 @@ public class Moment {
         return dateOfModification;
     }
 
-    // Setters
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setEmotion(String emotion) {
-        this.emotion = emotion;
-    }
-
-    public void setDateOfMoment(Date dateOfMoment) {
-        this.dateOfMoment = dateOfMoment;
-    }
-
-    public void setDateOfCreation(Date dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
-    }
-
-    public void setDateOfModification(Date dateOfModification) {
-        this.dateOfModification = dateOfModification;
-    }
-
 }

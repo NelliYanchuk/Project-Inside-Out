@@ -5,22 +5,20 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AppDiary {
-    private Menu menu;
     private PremiumManager premiumManager;
-    private boolean running;
+    private boolean run;
     private List<Moment> momentsList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     public AppDiary() {
-        this.menu = new Menu();
         this.premiumManager = new PremiumManager();
-        this.running = true;
+        this.run = true;
     }
 
     public void start() {
-        while (running) {
+        while (run) {
             Menu.showMenu();
-            int option = menu.getUserOption();
+            int option = Menu.getUserOption();
             switch (option) {
                 case 1:
                     Diary.addMoment(momentsList, scanner);
@@ -33,7 +31,7 @@ public class AppDiary {
                     break;
                 case 4:
                     Menu.showFilterMenu();
-                    int filterNum = Menu.getFilterOption();
+                    int filterNum = Menu.getUserOption();
                     if (filterNum == 1) {
                         Diary.filterByEmotion(momentsList, scanner);
                     }
@@ -60,7 +58,7 @@ public class AppDiary {
 
     private void exitProgram() {
         System.out.println("Until next time!!!");
-        running = false;
+        run = false;
     }
 
     public static void main(String[] args) {
