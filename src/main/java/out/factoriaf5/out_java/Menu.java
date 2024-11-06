@@ -3,11 +3,7 @@ package out.factoriaf5.out_java;
 import java.util.Scanner;
 
 public class Menu {
-    private static Scanner scanner;
-
-    public Menu() {
-        Menu.scanner = new Scanner(System.in);
-    }
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void showMenu() {
         System.out.println("\n--- My Diary ---");
@@ -19,13 +15,18 @@ public class Menu {
         System.out.println("6. Exit");
     }
 
+    public static int getUserOption() {
+        System.out.print("Choose an option: ");
+        return scanner.nextInt();
+    }
+
     public static void showFilterMenu() {
         System.out.println("\n--- Filter Moments ---");
         System.out.println("1. Filter by Emotion");
         System.out.println("2. Filter by Date");
     }
 
-    public static int getUserOption() {
+    public static int getFilterOption() {
         System.out.print("Select an option: ");
         return scanner.nextInt();
     }
