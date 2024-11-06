@@ -12,28 +12,26 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DiaryTest {
 
     private List<Moment> momentsList;
-    private Scanner scanner;
 
     @BeforeEach
     void init() {
         momentsList = new ArrayList<>();
-        scanner = new Scanner(System.in);
     }
 
     @Test
     void testAddMoment() {
-        // Initialize count and simulate user inputs
-        int count = Diary.getMomentCount(momentsList);
+        // Init count and simulate user input
+        int initialCount = Diary.getMomentCount(momentsList);
         String userInput = String.join("\n", "Wedding", "22/12/2020", "Wedding Description", "1") + "\n";
-        // System.in use userInput data
-        System.setIn(new java.io.ByteArrayInputStream(userInput.getBytes()));
+        // Read from userInput
+        Scanner testScanner = new Scanner(new java.io.ByteArrayInputStream(userInput.getBytes()));
 
-        Diary.addMoment(momentsList, scanner);
+        Diary.addMoment(momentsList, testScanner);
 
-        // Assert: Verify the list size and moment details
-        assertEquals(count + 1, Diary.getMomentCount(momentsList));
+        // If moment list size increased by one
+        assertEquals(initialCount + 1, Diary.getMomentCount(momentsList));
 
-        // Get first element from list
+        // Details of the added moment
         Moment addedMoment = momentsList.get(0);
         assertEquals("Wedding", addedMoment.getTitle());
         assertEquals("Wedding Description", addedMoment.getDescription());
@@ -49,30 +47,33 @@ public class DiaryTest {
 
     @Test
     void testDeleteMoment() {
-        // Arrange: Add a Moment to the list with a specific ID
         momentsList.add(new Moment(1, "Wedding", "Wedding Description", "Joy", new Date(), new Date(), new Date()));
-    
-        // Simulate user input for deletion: first the ID, then confirmation with "y"
+
+        // Simulate user input
         String simulatedInput = "1\ny\n";
         Scanner testScanner = new Scanner(new java.io.ByteArrayInputStream(simulatedInput.getBytes()));
-    
-        // Act: Call deleteMoment with the simulated input
+
         Diary.deleteMoment(momentsList, testScanner);
-    
-        // Assert: Verify that the moment list is now empty after deletion
-        assertEquals(0, Diary.getMomentCount(momentsList), "Moment list should be empty after deletion.");
+
+        // If moment list is empty after delete
+        assertEquals(0, Diary.getMomentCount(momentsList));
     }
-    
 
     @Test
     void testFilterByEmotion() {
+        // Add two moments with different emotions
         momentsList.add(new Moment(1, "Moment 1", "Description 1", "Joy", new Date(), new Date(), new Date()));
         momentsList.add(new Moment(2, "Moment 2", "Description 2", "Sadness", new Date(), new Date(), new Date()));
 
-        System.setIn(new java.io.ByteArrayInputStream("1\n".getBytes())); // Joy
-        Diary.filterByEmotion(momentsList, scanner);
+        // User input for Joy
+        String simulatedInput = "1\n";
+        Scanner testScanner = new Scanner(new java.io.ByteArrayInputStream(simulatedInput.getBytes()));
 
-        assertEquals(1, momentsList.stream().filter(m -> m.getEmotion().equals("Joy")).count());
+        Diary.filterByEmotion(momentsList, testScanner);
+
+        // If only Joy moment is included
+        long joyCount = momentsList.stream().filter(m -> m.getEmotion().equals("Joy")).count();
+        assertEquals(1, joyCount);
     }
 
     @Test
