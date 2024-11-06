@@ -26,14 +26,19 @@ public class Diary {
         System.out.print("Enter the description of the moment: ");
         String description = scanner.nextLine();
         
-        System.out.print("Enter the emotion of the moment: ");
-        String emotion = scanner.nextLine();
+        System.out.print("\nPlease select the emotion number from the list below: ");
+        for (Emotion emotion : Emotion.values()) {
+            System.out.print("\n" + emotion.getNumber() + ". " + emotion.getName() + " ");
+        }
+        int emotionNum = scanner.nextInt();
+        scanner.nextLine();
+        String emotionName = Emotion.getNameByNumber(emotionNum);
 
         Date momentDate = DateFormat.strToSimpleDateFormat(dateString);
 
         int addId = momentsList.isEmpty() ? 1 : momentsList.get(momentsList.size() - 1).getId() + 1;
 
-        Moment newMoment = new Moment(addId, title, description, emotion, momentDate, new Date(), new Date());
+        Moment newMoment = new Moment(addId, title, description, emotionName, momentDate, new Date(), new Date());
 
         momentsList.add(newMoment);
 
