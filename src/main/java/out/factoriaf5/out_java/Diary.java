@@ -30,7 +30,7 @@ public class Diary {
         for (Emotion emotion : Emotion.values()) {
             System.out.print("\n" + emotion.getNumber() + ". " + emotion.getName() + " ");
         }
-        System.out.print("\n\nEnter the number corresponding to the emotion: ");
+        System.out.print("\n\nEnter emotion number: ");
         int emotionNum = scanner.nextInt();
         scanner.nextLine();
 
@@ -47,7 +47,7 @@ public class Diary {
         Moment newMoment = new Moment(addId, title, description, emotionName, momentDate, new Date(), new Date());
         momentsList.add(newMoment);
 
-        System.out.println("\nNew '" + title + "' Lived moment added correctly");
+        System.out.println("\nNew '" + title + "' life moment is added correctly.");
 
         int totalMoments = getMomentCount(momentsList);
         System.out.println("Total moments now: " + totalMoments);
