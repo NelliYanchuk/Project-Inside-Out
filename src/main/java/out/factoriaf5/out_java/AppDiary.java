@@ -6,17 +6,16 @@ import java.util.Scanner;
 
 public class AppDiary {
     private PremiumManager premiumManager;
-    private boolean run;
     private List<Moment> momentsList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     public AppDiary() {
         this.premiumManager = new PremiumManager();
-        this.run = true;
+        Diary.initialize(premiumManager);
     }
 
     public void start() {
-        while (run) {
+        while (Diary.isRunning()) {
             Menu.showMenu();
             int option = Menu.getUserOption();
             switch (option) {
@@ -31,7 +30,7 @@ public class AppDiary {
                     break;
                 case 4:
                     Menu.showFilterMenu();
-                    int filterNum = Menu.getUserOption();
+                    int filterNum = Menu.getFilterOption();
                     if (filterNum == 1) {
                         Diary.filterByEmotion(momentsList, scanner);
                     }
@@ -40,25 +39,15 @@ public class AppDiary {
                     }
                     break;
                 case 5:
-                    activatePremium();
+                    Diary.activatePremium();
                     break;
                 case 6:
-                    exitProgram();
+                    Diary.exitProgram();
                     break;
                 default:
                     Menu.showMenu();
             }
         }
-    }
-
-    private void activatePremium() {
-        premiumManager.activatePremium();
-        premiumManager.displayPremiumBenefits();
-    }
-
-    private void exitProgram() {
-        System.out.println("Until next time!!!");
-        run = false;
     }
 
     public static void main(String[] args) {
