@@ -1,69 +1,5 @@
 # Project-Inside-Out
 
-# Mi Diario
-
-## Descripción del Proyecto
-"Mi Diario" es una aplicación de consola diseñada para gestionar momentos vividos, permitiendo al usuario registrar emociones, indicando la fecha y la descripción de sus experiencias significativas relacionadas a ello.
-
-## Objetivo
-Gestionar momentos vividos con atributos como emociones, fechas y descripciones, facilitando su organización y visualización.
-
-## Funcionalidades Principales
-- **Menú Principal**: Interfaz de navegación para elegir las acciones disponibles.
-- **Agregar Momento**: Permite al usuario ingresar un momento con título, descripción, emoción y fecha.
-- **Visualizar Momentos**: Muestra todos los momentos almacenados.
-- **Eliminar Momento**: Opción para borrar un momento específico.
-- **Filtrar Momentos**: Opción para obtener los momentos vividos según su emoción o por mes determinado.
-
-## Estructura del Proyecto en Java
-- **Clase Momento**: Representa cada momento con sus atributos.
-- **Clase Diario**: Maneja la lista de momentos y las operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
-- **Clase AppDiario**: Contiene el menú principal e interactúa con el usuario.
-
-## Historias de Usuario
-
-- **Historia 1**: Añadir un Momento Vivido
-  - **Descripción**: Permitir al usuario agregar un momento con título, descripción, emoción y fecha.
-  - **Clases involucradas**:
-    - Momento: Representa cada momento (ya existente).
-    - Diario: Métodos para añadir un nuevo momento y asignarle un identificador.
-
-- **Historia 2**: Recuperar la Lista de Momentos Vividos
-  - **Descripción**: Permitir al usuario visualizar todos los momentos registrados.
-  - **Clases involucradas**: Diario.
-
-- **Historia 3**: Suprimir un Momento Vivido
-  - **Descripción**: Permitir al usuario eliminar un momento para evitar duplicados o limpiar la lista.
-  - **Clases involucradas**: Diario.
-
-- **Historia 4**:  Obtener los momentos vividos según su emoción.
-  - **Descripción**: Permitir al usuario ver solo los momentos que tengan una emoción específica.
-  - **Clases involucradas**: Diario.
-
-- **Historia 5**: Obtener los momentos vividos en un mes determinado.
-  - **Descripción**: Permitir al usuario obtener momentos registrados en un mes específico.
-  - **Clases involucradas**: Diario.
-
-- **Historia 6**: Salir del Programa
-  - **Descripción**: Permitir al usuario salir de la aplicación.
-  - **Clases involucradas**: AppDiario.
-
-## Modelo de Negocio
-La aplicación sigue un modelo Freemium o Licencia de Pago Único:
-  - **Versión Gratuita**: Permite al usuario agregar, editar y eliminar hasta 20 momentos.
-  - **Versión Premium**: Permite guardar más de 20 momentos.
-  - **Simulación de Pago**: La aplicación simula el pago con un mensaje en la consola, como "Para agregar más momentos, adquiere la versión premium."
-
-## Autores
-Angelo
-Maria
-Mariel
-Nelli
-
-
-// ENGLISH VERSION
-# Project-Inside-Out
-
 # My Diary
 
 ## Project Description
@@ -79,38 +15,31 @@ To manage memorable moments with attributes such as emotions, dates, and descrip
 - **Delete Moment**: Option to delete a specific moment.
 - **Filter Moments**: Option to retrieve moments based on their emotion or a specific month.
 
-## Project Structure in Java
-- **Moment Class**: Represents each moment with its attributes.
-- **Diary Class**: Manages the list of moments and CRUD operations (Create, Read, Update, Delete).
-- **AppDiary Class**: Contains the main menu and interacts with the user.
+## Prerequisites (Facility)
+- **Java Development Kit (JDK) 8** or higher - Required to compile and run the project.
+- **Maven** - If you want to manage dependencies or compile from the command line.
+- **IDE** - For better management of the project and its dependencies.
 
-## User Stories
+## Installation steps
+-1. **Clone the repository**
+    git clone https://github.com/Snysic/Project-Inside-Out.git
+    cd Project-Inside-Out
 
-- **Story 1**: Add a Memorable Moment
-  - **Description**: Allows the user to add a moment with a title, description, emotion, and date.
-  - **Involved Classes**:
-    - Moment: Represents each moment (already existing).
-    - Diary: Methods for adding a new moment and assigning it an identifier.
+-2. **Set up the project in the IDE**
+    - Open the project in your preferred IDE.
+    - Make sure the JDK is configured correctly.
+    - Make sure the pom.xml file is present as well as the dependencies.
 
-- **Story 2**: Retrieve the List of Memorable Moments
-  - **Description**: Allows the user to view all registered moments.
-  - **Involved Classes**: Diary.
+-3. **Run the application**
+    - Navigate to the AppDiary class in your IDE.
+    - Run the AppDiary class from the IDE, or from the terminal.
 
-- **Story 3**: Delete a Memorable Moment
-  - **Description**: Allows the user to delete a moment to avoid duplicates or clean up the list.
-  - **Involved Classes**: Diary.
+-4. **Menu Options**
+    Within the app, you will be presented with options to manage moments and activate premium features. You can add, show, delete and filter moments, as well as activate the premium subscription, you just have to select the number of the option you want, which ranges from 1 to 6.
 
-- **Story 4**: Retrieve Moments Based on Emotion
-  - **Description**: Allows the user to view only moments with a specific emotion.
-  - **Involved Classes**: Diary.
+## Test execution
 
-- **Story 5**: Retrieve Moments for a Specific Month
-  - **Description**: Allows the user to retrieve moments recorded in a specific month.
-  - **Involved Classes**: Diary.
-
-- **Story 6**: Exit the Program
-  - **Description**: Allows the user to exit the application.
-  - **Involved Classes**: AppDiary.
+## Diagrams
 
 ## Business Model
 The application follows a Freemium or One-Time Purchase model:
@@ -123,4 +52,3 @@ Angelo Colmenares
 Maria Vasilenko
 Mariel Blanco
 Nelli Yanchuk
-
