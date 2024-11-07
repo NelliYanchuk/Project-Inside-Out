@@ -11,11 +11,11 @@ public class AppDiary {
 
     public AppDiary() {
         this.premiumManager = new PremiumManager();
-        Diary.initialize(premiumManager);
+        PremiumManager.initialize(premiumManager);
     }
 
     public void start() {
-        while (Diary.isRunning()) {
+        while (Menu.isRunning()) {
             Menu.showMenu();
             int option = Menu.getUserOption();
             switch (option) {
@@ -39,10 +39,10 @@ public class AppDiary {
                     }
                     break;
                 case 5:
-                    Diary.activatePremium();
+                    PremiumManager.activatePremium();
                     break;
                 case 6:
-                    Diary.exitProgram();
+                    Menu.exitProgram();
                     break;
                 default:
                     Menu.showMenu();

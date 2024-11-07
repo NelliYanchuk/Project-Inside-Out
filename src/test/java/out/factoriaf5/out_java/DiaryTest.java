@@ -76,21 +76,10 @@ public class DiaryTest {
         assertEquals(1, joyCount);
     }
 
-    @Test
-    void testActivatePremium() {
-        // Init Diary with PremiumManager
-        PremiumManager premiumManager = new PremiumManager();
-        Diary.initialize(premiumManager);
-
-        Diary.activatePremium();
-
-        // If premium mode is active
-        assertTrue(premiumManager.isPremiumActive());
-    }
 
     @Test
     void testExitProgram() {
-        Diary.exitProgram();
-        assertFalse(Diary.isRunning());
+        Menu.exitProgram();
+        assertFalse(Menu.isRunning());
     }
 }

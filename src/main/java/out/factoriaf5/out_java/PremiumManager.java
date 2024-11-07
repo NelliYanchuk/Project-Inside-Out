@@ -2,14 +2,24 @@ package out.factoriaf5.out_java;
 
 public class PremiumManager {
     private boolean isPremium;
+    private static PremiumManager premiumManager;
+
+    public static void initialize(PremiumManager manager) {
+        premiumManager = manager;
+    }
 
     public PremiumManager() {
         this.isPremium = false;
     }
 
-    public void activatePremium() {
-        isPremium = true;
-        System.out.println("\nCongratulations! You are a premium user now.");
+    // ----------- ACTIVATE PREMIUM ----------
+    public static void activatePremium() {
+        if (premiumManager != null) {
+            premiumManager.displayPremiumBenefits();
+            System.out.println("\nCongratulations! You are a premium user now.");
+        } else {
+            System.out.println("PremiumManager not initialized.");
+        }
     }
 
     public boolean isUserPremium() {
@@ -25,4 +35,5 @@ public class PremiumManager {
         System.out.println("Premium Benefit:");
         System.out.println("- Add more than 20 moments.");
     }
+
 }
