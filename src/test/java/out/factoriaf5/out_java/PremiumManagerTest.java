@@ -7,19 +7,23 @@ import org.junit.jupiter.api.Test;
 
 public class PremiumManagerTest {
 
-     @Test
+    @Test
     @DisplayName("Activa la cuenta premium")
     void testActivatePremium() {
         PremiumManager premiumManager = new PremiumManager();
+        PremiumManager.initialize(premiumManager);
         PremiumManager.activatePremium();
 
         assertFalse(premiumManager.isUserPremium());
-        } 
-        
+        assertFalse(premiumManager.isPremiumActive());
+
+    }
+
     @Test
     @DisplayName("Verificar los beneficios")
     void testDisplayPremiumBenefits() {
         PremiumManager premiumManager = new PremiumManager();
         premiumManager.displayPremiumBenefits();
     }
+
 }
