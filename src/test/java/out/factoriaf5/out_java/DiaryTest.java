@@ -1,45 +1,96 @@
-/*package out.factoriaf5.out_java;
+package out.factoriaf5.out_java;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DiaryTest {
-    private Diary diary;
-    private Moment moment1, moment2, moment3;
 
-    @Test
-    public void testShowAllMoments() {
-        diary.addMoment(moment1);
-        diary.addMoment(moment2);
-        diary.addMoment(moment3);
+    private List<Moment> momentsList;
 
-        List<Moment> allMoments = diary.getMoments();
-        assertEquals(3, allMoments.size());
-        assertTrue(allMoments.contains(moment1));
-        assertTrue(allMoments.contains(moment2));
-        assertTrue(allMoments.contains(moment3));
+    @BeforeEach
+    void init() {
+        momentsList = new ArrayList<>();
     }
 
     @Test
-    public void testFilterByEmotion() {
-        diary.addMoment(moment1);
-        diary.addMoment(moment2);
-        diary.addMoment(moment3);
+    void testAddMoment() {
+        // Init count and simulate user input
+        int initialCount = Diary.getMomentCount(momentsList);
+        String userInput = String.join("\n", "Wedding", "22/12/2020", "Wedding Description", "1") + "\n";
+        // Read from userInput
+        Scanner testScanner = new Scanner(new java.io.ByteArrayInputStream(userInput.getBytes()));
 
-        List<Moment> happinessMoments = diary.filterByEmotion("Happiness");
-        assertEquals(2, happinessMoments.size());
-        assertTrue(happinessMoments.contains(moment1));
-        assertTrue(happinessMoments.contains(moment3));
+        Diary.addMoment(momentsList, testScanner);
 
-        List<Moment> sadnessMoments = diary.filterByEmotion("Sadness");
-        assertEquals(1, sadnessMoments.size());
-        assertTrue(sadnessMoments.contains(moment2));
+        // If moment list size increased by one
+        assertEquals(initialCount + 1, Diary.getMomentCount(momentsList));
+
+        // Details of the added moment
+        Moment addedMoment = momentsList.get(0);
+        assertEquals("Wedding", addedMoment.getTitle());
+        assertEquals("Wedding Description", addedMoment.getDescription());
+        assertEquals("Joy", addedMoment.getEmotion());
     }
 
+    @Test
+    void testGetMomentCount() {
+        assertEquals(0, Diary.getMomentCount(momentsList));
+        momentsList.add(new Moment(1, "Wedding", "Wedding Description", "Joy", new Date(), new Date(), new Date()));
+        assertEquals(1, Diary.getMomentCount(momentsList));
+    }
+
+    @Test
+    void testDeleteMoment() {
+        momentsList.add(new Moment(1, "Wedding", "Wedding Description", "Joy", new Date(), new Date(), new Date()));
+
+        // Simulate user input
+        String simulatedInput = "1\ny\n";
+        Scanner testScanner = new Scanner(new java.io.ByteArrayInputStream(simulatedInput.getBytes()));
+
+        Diary.deleteMoment(momentsList, testScanner);
+
+        // If moment list is empty after delete
+        assertEquals(0, Diary.getMomentCount(momentsList));
+    }
+
+    @Test
+    void testFilterByEmotion() {
+        // Add two moments with different emotions
+        momentsList.add(new Moment(1, "Moment 1", "Description 1", "Joy", new Date(), new Date(), new Date()));
+        momentsList.add(new Moment(2, "Moment 2", "Description 2", "Sadness", new Date(), new Date(), new Date()));
+
+        // User input for Joy
+        String simulatedInput = "1\n";
+        Scanner testScanner = new Scanner(new java.io.ByteArrayInputStream(simulatedInput.getBytes()));
+
+        Diary.filterByEmotion(momentsList, testScanner);
+
+        // If only Joy moment is included
+        long joyCount = momentsList.stream().filter(m -> m.getEmotion().equals("Joy")).count();
+        assertEquals(1, joyCount);
+    }
+
+    @Test
+    void testActivatePremium() {
+        // Init Diary with PremiumManager
+        PremiumManager premiumManager = new PremiumManager();
+        Diary.initialize(premiumManager);
+
+        Diary.activatePremium();
+
+        // If premium mode is active
+        assertTrue(premiumManager.isPremiumActive());
+    }
+
+    @Test
+    void testExitProgram() {
+        Diary.exitProgram();
+        assertFalse(Diary.isRunning());
+    }
 }
-
-
-*/

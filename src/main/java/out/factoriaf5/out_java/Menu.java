@@ -11,7 +11,7 @@ public class Menu {
         System.out.println("2. View all available moments");
         System.out.println("3. Delete a moment");
         System.out.println("4. Filter moments");
-        System.out.println("5. Activate Primium");
+        System.out.println("5. Activate Premium");
         System.out.println("6. Exit");
     }
 

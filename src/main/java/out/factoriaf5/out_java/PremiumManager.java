@@ -16,6 +16,11 @@ public class PremiumManager {
         return isPremium;
     }
 
+    // Getter method for testing
+    public boolean isPremiumActive() {
+        return isPremium;
+    }
+
     public void displayPremiumBenefits() {
         System.out.println("Premium Benefit:");
         System.out.println("- Add more than 20 moments.");
