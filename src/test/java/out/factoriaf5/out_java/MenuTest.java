@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MenuTest {
@@ -74,5 +75,10 @@ public class MenuTest {
 
         assertEquals(1, option);
     }
-}
 
+    @Test
+    void testExitProgram() {
+        Menu.exitProgram();
+        assertFalse(Menu.isRunning());
+    }
+}

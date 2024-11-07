@@ -32,7 +32,6 @@ public class Menu {
         return scanner.nextInt();
     }
 
-    
     // ----------- EXIT PROGRAM -----------
     public static void exitProgram() {
         System.out.println("Until next time!!!");
