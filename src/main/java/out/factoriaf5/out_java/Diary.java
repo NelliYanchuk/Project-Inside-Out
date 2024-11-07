@@ -8,12 +8,9 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Diary {
-    private static PremiumManager premiumManager;
-    private static boolean running = true;
+    
+    
 
-    public static void initialize(PremiumManager manager) {
-        premiumManager = manager;
-    }
 
     // ----------- ADD Momemt -----------
     public static void addMoment(List<Moment> momentsList, Scanner scanner) { 
@@ -155,24 +152,7 @@ public class Diary {
         showAllMoments(filterByDateList);
     }
 
-    // ----------- ACTIVATE PREMIUM ----------
-    public static void activatePremium() {
-        if (premiumManager != null) {
-            premiumManager.activatePremium();
-            premiumManager.displayPremiumBenefits();
-        } else {
-            System.out.println("PremiumManager not initialized.");
-        }
-    }
 
-    // ----------- EXIT PROGRAM -----------
-    public static void exitProgram() {
-        System.out.println("Until next time!!!");
-        running = false;
-    }
 
-    public static boolean isRunning() {
-        return running;
-    }
 
 }

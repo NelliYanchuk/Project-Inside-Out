@@ -3,6 +3,7 @@ package out.factoriaf5.out_java;
 import java.util.Scanner;
 
 public class Menu {
+    private static boolean running = true;
     public static Scanner scanner = new Scanner(System.in);
 
     public static void showMenu() {
@@ -29,6 +30,17 @@ public class Menu {
     public static int getFilterOption() {
         System.out.print("Select an option: ");
         return scanner.nextInt();
+    }
+
+    
+    // ----------- EXIT PROGRAM -----------
+    public static void exitProgram() {
+        System.out.println("Until next time!!!");
+        running = false;
+    }
+
+    public static boolean isRunning() {
+        return running;
     }
 
 }
