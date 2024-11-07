@@ -76,7 +76,6 @@ public class DiaryTest {
         assertEquals(1, joyCount);
     }
 
-
     @Test
     void testExitProgram() {
         Menu.exitProgram();

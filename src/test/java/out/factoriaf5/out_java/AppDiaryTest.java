@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 
-public class TestAppDiary {
+public class AppDiaryTest {
 
         @InjectMocks
         private AppDiary appDiary; // Objeto de prueba
