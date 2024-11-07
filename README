@@ -39,7 +39,17 @@ To manage memorable moments with attributes such as emotions, dates, and descrip
 
 ## Test execution
 
+In Visual Studio Code, navigate to the **Testing** section to run tests and observe code coverage. The project ensures a minimum of 70% coverage across all methods.
+
+<img src="images/test-cover.png" alt="Test Cover" width="30%">
+
+Also you can find test covering here `images/test-cover.png`
+
 ## Diagrams
+
+<img src="images/diagram.png" alt="Diagram" width="30%">
+
+Also you can find diagram here `images/diagram.png`
 
 ## Business Model
 The application follows a Freemium or One-Time Purchase model:
