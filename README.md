@@ -49,7 +49,7 @@ You can also find the test coverage image here: `images/test-cover.png`
 
 ## Diagrams
 
-<img src="images/diagram.png" alt="Diagram" width="30%">
+<img src="images/diagram.png" alt="Diagram" width="50%">
 
 The diagram image can also be found here: `images/diagram.png`
 
