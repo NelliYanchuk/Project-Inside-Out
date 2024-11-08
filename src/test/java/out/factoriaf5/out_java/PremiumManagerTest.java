@@ -14,7 +14,6 @@ public class PremiumManagerTest {
         PremiumManager.initialize(premiumManager);
         PremiumManager.activatePremium();
 
-        assertFalse(premiumManager.isUserPremium());
         assertFalse(premiumManager.isPremiumActive());
 
     }

@@ -22,10 +22,6 @@ public class PremiumManager {
         }
     }
 
-    public boolean isUserPremium() {
-        return isPremium;
-    }
-
     // Getter method for testing
     public boolean isPremiumActive() {
         return isPremium;

@@ -8,21 +8,18 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Diary {
-    
-    
-
 
     // ----------- ADD Momemt -----------
-    public static void addMoment(List<Moment> momentsList, Scanner scanner) { 
+    public static void addMoment(List<Moment> momentsList, Scanner scanner) {
         System.out.print("\nTo Add new moment please enter it's title: ");
         String title = scanner.nextLine();
 
         System.out.print("Enter the date of the moment (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
-        
+
         System.out.print("Enter the description of the moment: ");
         String description = scanner.nextLine();
-        
+
         System.out.print("Please select the emotion from the following list: ");
         for (Emotion emotion : Emotion.values()) {
             System.out.print("\n" + emotion.getNumber() + ". " + emotion.getName() + " ");
@@ -94,7 +91,8 @@ public class Diary {
                 String deleteFlag = scanner.nextLine();
                 if (deleteFlag.equalsIgnoreCase("y")) {
                     iterator.remove();
-                    System.out.println("\n'" + deleteTitle + "' Lived Moment with ID #" + deleteId + " Correctly Deleted.");
+                    System.out.println(
+                            "\n'" + deleteTitle + "' Lived Moment with ID #" + deleteId + " Correctly Deleted.");
                 } else {
                     System.out.println("\nDeclined delete '" + deleteTitle + "' moment with ID #" + deleteId);
                 }
@@ -151,8 +149,5 @@ public class Diary {
 
         showAllMoments(filterByDateList);
     }
-
-
-
 
 }

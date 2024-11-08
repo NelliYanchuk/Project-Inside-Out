@@ -6,6 +6,7 @@ public class Menu {
     private static boolean running = true;
     public static Scanner scanner = new Scanner(System.in);
 
+    // ----------- showMenu -----------
     public static void showMenu() {
         System.out.println("\n--- My Diary ---");
         System.out.println("1. Add a moment");
@@ -16,28 +17,32 @@ public class Menu {
         System.out.println("6. Exit");
     }
 
+    // ----------- getUserOption -----------
     public static int getUserOption() {
         System.out.print("Choose an option: ");
         return scanner.nextInt();
     }
 
+    // ----------- showFilterMenu -----------
     public static void showFilterMenu() {
         System.out.println("\n--- Filter Moments ---");
         System.out.println("1. Filter by Emotion");
         System.out.println("2. Filter by Date");
     }
 
+    // ----------- getFilterOption -----------
     public static int getFilterOption() {
         System.out.print("Select an option: ");
         return scanner.nextInt();
     }
 
-    // ----------- EXIT PROGRAM -----------
+    // ----------- exitProgram -----------
     public static void exitProgram() {
         System.out.println("Until next time!!!");
         running = false;
     }
 
+    // ----------- isRunning -----------
     public static boolean isRunning() {
         return running;
     }
